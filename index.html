@@ -640,86 +640,93 @@
     }
 }
 
-        /* ============================================
-           DEPOIMENTOS
-           ============================================ */
-        .testimonials {
-            background: linear-gradient(180deg, var(--black) 0%, var(--black-light) 100%);
-            padding-bottom: 60px;
-        }
+/* ============================================
+   DEPOIMENTOS
+   ============================================ */
+.testimonials {
+    background: linear-gradient(180deg, var(--black) 0%, var(--black-light) 100%);
+    padding-bottom: 60px;
+}
 
-        .testimonials-scroll {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
+.testimonials-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: center;
+}
 
-        .testimonials-scroll::-webkit-scrollbar {
-            display: none;
-        }
+.testimonials-scroll::-webkit-scrollbar {
+    display: none;
+}
 
-        .testimonial-card {
-            flex: 0 0 300px;
-            scroll-snap-align: start;
-            background: linear-gradient(145deg, var(--black-medium), var(--black-light));
-            border: 1px solid rgba(201, 169, 98, 0.1);
-            border-radius: 16px;
-            padding: 25px;
-        }
+.testimonial-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: linear-gradient(145deg, var(--black-medium), var(--black-light));
+    border: 1px solid rgba(201, 169, 98, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+}
 
-        .testimonial-stars {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 15px;
-        }
+.testimonial-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
 
-        .testimonial-stars svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--gold);
-        }
+.testimonial-stars svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--gold);
+}
 
-        .testimonial-card blockquote {
-            font-size: 0.95rem;
-            color: var(--gray-light);
-            line-height: 1.7;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
+.testimonial-card blockquote {
+    font-size: 0.95rem;
+    color: var(--gray-light);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 20px;
+}
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        .testimonial-avatar {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--black);
-            font-size: 1.1rem;
-        }
+.testimonial-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--black);
+    font-size: 1.1rem;
+}
 
-        .testimonial-info h4 {
-            font-size: 0.95rem;
-            color: var(--white);
-        }
+.testimonial-info h4 {
+    font-size: 0.95rem;
+    color: var(--white);
+}
 
-        .testimonial-info span {
-            font-size: 0.8rem;
-            color: var(--gold);
-        }
+.testimonial-info span {
+    font-size: 0.8rem;
+    color: var(--gold);
+}
 
+/* Mobile - volta ao scroll lateral */
+@media (max-width: 968px) {
+    .testimonials-scroll {
+        justify-content: flex-start;
+    }
+}
         /* ============================================
            DIFERENCIAIS
            ============================================ */
