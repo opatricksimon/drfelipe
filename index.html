@@ -914,14 +914,16 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            padding: 8px 0 24px;
+            padding: 8px 4px 24px;
             margin: 0 -24px;
             padding-left: 24px;
             padding-right: 24px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--verde-menta) var(--bege);
         }
 
         .videos-carousel::-webkit-scrollbar {
-            height: 6px;
+            height: 8px;
         }
 
         .videos-carousel::-webkit-scrollbar-track {
@@ -953,14 +955,27 @@
             position: relative;
             padding-top: 177.78%; /* Aspect ratio 9:16 */
             background: var(--azul-petroleo);
+            overflow: hidden;
         }
 
         .video-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            transform: translate(-50%, -50%);
+            border: 0;
+            pointer-events: none; /* Bloqueia cliques */
+        }
+
+        /* Overlay para garantir que não clique no vídeo */
+        .video-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            cursor: default;
         }
 
         .video-info {
@@ -996,6 +1011,34 @@
         .videos-cta {
             text-align: center;
             margin-top: 40px;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .video-card {
+                flex: 0 0 300px;
+            }
+        }
+
+        /* Desktop - MANTÉM CARROSSEL */
+        @media (min-width: 1024px) {
+            .video-card {
+                flex: 0 0 320px;
+            }
+
+            .videos-carousel {
+                padding-left: calc((100vw - 1200px) / 2 + 24px);
+                padding-right: calc((100vw - 1200px) / 2 + 24px);
+                margin: 0 calc(-1 * (100vw - 1200px) / 2 - 24px);
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .videos-carousel {
+                padding-left: calc((100vw - 1200px) / 2);
+                padding-right: calc((100vw - 1200px) / 2);
+                margin: 0 calc(-1 * (100vw - 1200px) / 2);
+            }
         }
 
         /* ========================================
@@ -1274,7 +1317,7 @@
             line-height: 1.7;
         }
 
-        /* ========================================
+               /* ========================================
            LOCALIZAÇÃO
         ======================================== */
         .localizacao {
@@ -1293,16 +1336,21 @@
 
         .mapa-wrapper {
             width: 100%;
-            height: 350px;
+            height: 400px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
             background: var(--cinza-claro);
+            position: relative;
         }
 
         .mapa-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            border: 0;
         }
 
         .localizacao-info {
@@ -1360,6 +1408,28 @@
         .localizacao-info .btn {
             align-self: flex-start;
             margin-top: 8px;
+        }
+
+        /* Responsivo Tablet+ */
+        @media (min-width: 768px) {
+            .localizacao-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: stretch;
+            }
+
+            .localizacao-mapa {
+                order: 1;
+            }
+
+            .localizacao-info {
+                order: 2;
+            }
+
+            .mapa-wrapper {
+                height: 100%;
+                min-height: 500px;
+            }
         }
 
         /* ========================================
@@ -2053,11 +2123,11 @@
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe 
-                            src="https://player.vimeo.com/video/1151075185?badge=0&autopause=0&player_id=0&app_id=58479&muted=1&loop=1" 
+                            src="https://player.vimeo.com/video/1151075185?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0" 
                             frameborder="0" 
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Odontologia é saúde! Cuide-se!"
+                            allow="autoplay; fullscreen" 
+                            allowfullscreen
+                            title="Odontologia é saúde!"
                             loading="lazy">
                         </iframe>
                     </div>
@@ -2071,11 +2141,11 @@
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe 
-                            src="https://player.vimeo.com/video/1151075156?badge=0&autopause=0&player_id=0&app_id=58479&muted=1&loop=1" 
+                            src="https://player.vimeo.com/video/1151075156?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0" 
                             frameborder="0" 
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Precisa desgastar meu dente?"
+                            allow="autoplay; fullscreen" 
+                            allowfullscreen
+                            title="Desgaste dental"
                             loading="lazy">
                         </iframe>
                     </div>
@@ -2089,11 +2159,11 @@
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe 
-                            src="https://player.vimeo.com/video/1151075127?badge=0&autopause=0&player_id=0&app_id=58479&muted=1&loop=1" 
+                            src="https://player.vimeo.com/video/1151075127?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0" 
                             frameborder="0" 
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Querer + saúde + arte"
+                            allow="autoplay; fullscreen" 
+                            allowfullscreen
+                            title="Saúde + Arte"
                             loading="lazy">
                         </iframe>
                     </div>
@@ -2107,11 +2177,11 @@
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe 
-                            src="https://player.vimeo.com/video/1151076767?badge=0&autopause=0&player_id=0&app_id=58479&muted=1&loop=1" 
+                            src="https://player.vimeo.com/video/1151076767?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0" 
                             frameborder="0" 
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Paciente vinda da Irlanda"
+                            allow="autoplay; fullscreen" 
+                            allowfullscreen
+                            title="Paciente da Irlanda"
                             loading="lazy">
                         </iframe>
                     </div>
@@ -2133,7 +2203,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Depoimentos -->
     <section class="section depoimentos" id="depoimentos">
         <div class="container">
@@ -2749,4 +2819,3 @@
 
 </body>
 </html>
-
