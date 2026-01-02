@@ -153,6 +153,28 @@
             margin: 0 auto;
         }
 
+                /* Melhoria de contraste para tags em fundos variados */
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--verde-menta);
+            margin-bottom: 16px;
+            background: rgba(143, 190, 178, 0.12);
+            padding: 8px 16px;
+            border-radius: 30px;
+        }
+
+        /* Em fundos escuros */
+        .cta-section .section-tag,
+        .cta-final .cta-final-tag {
+            background: rgba(143, 190, 178, 0.2);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+        }
+
         /* ========================================
            BOTÕES
         ======================================== */
@@ -183,14 +205,16 @@
         }
 
         .btn-secondary {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.15);
             color: var(--branco);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.8);
         }
 
         .btn-outline {
@@ -439,9 +463,10 @@
             background: linear-gradient(
                 to top,
                 rgba(31, 58, 68, 1) 0%,
-                rgba(31, 58, 68, 0.85) 20%,
-                rgba(31, 58, 68, 0.4) 50%,
-                rgba(31, 58, 68, 0.1) 70%,
+                rgba(31, 58, 68, 0.9) 15%,
+                rgba(31, 58, 68, 0.6) 40%,
+                rgba(31, 58, 68, 0.3) 60%,
+                rgba(31, 58, 68, 0.1) 80%,
                 rgba(31, 58, 68, 0) 100%
             );
             z-index: 2;
@@ -463,6 +488,11 @@
             text-transform: uppercase;
             color: var(--verde-menta);
             margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            background: rgba(31, 58, 68, 0.4);
+            padding: 8px 16px;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
         }
 
         .hero-title {
@@ -472,20 +502,27 @@
             color: var(--branco);
             line-height: 1.15;
             margin-bottom: 20px;
+            text-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.4),
+                0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         .hero-title span {
             color: var(--dourado);
+            text-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                0 4px 30px rgba(201, 162, 77, 0.3);
         }
 
         .hero-subtitle {
             font-size: clamp(1rem, 2.5vw, 1.1875rem);
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.95);
             line-height: 1.7;
             margin-bottom: 36px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
         }
 
         .hero-buttons {
@@ -496,19 +533,33 @@
         }
 
         .hero-location {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             margin-top: 40px;
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+            background: rgba(31, 58, 68, 0.4);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
         }
 
         .hero-location svg {
             width: 16px;
             height: 16px;
             color: var(--verde-menta);
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Responsivo */
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
         }
 
         /* ========================================
@@ -826,7 +877,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center 20%; /* Ajusta para mostrar o rosto */
         }
 
         .cta-overlay {
@@ -834,8 +885,8 @@
             inset: 0;
             background: linear-gradient(
                 135deg,
-                rgba(31, 58, 68, 0.92) 0%,
-                rgba(31, 58, 68, 0.85) 100%
+                rgba(31, 58, 68, 0.88) 0%,
+                rgba(31, 58, 68, 0.75) 100%
             );
             z-index: 2;
         }
@@ -856,6 +907,7 @@
             text-transform: uppercase;
             color: var(--verde-menta);
             margin-bottom: 16px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .cta-title {
@@ -865,13 +917,15 @@
             color: var(--branco);
             line-height: 1.2;
             margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
         }
 
         .cta-text {
             font-size: 1.0625rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
             margin-bottom: 32px;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* CTA Simple (sem imagem de fundo) */
@@ -896,9 +950,20 @@
 
         .cta-simple-text {
             font-size: 1.0625rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             line-height: 1.7;
             margin-bottom: 32px;
+        }
+
+        /* Responsivo */
+        @media (min-width: 1024px) {
+            .cta-section {
+                padding: 140px 0;
+            }
+
+            .cta-background img {
+                object-position: center 15%;
+            }
         }
 
         /* ========================================
@@ -1541,6 +1606,9 @@
             text-transform: uppercase;
             color: var(--verde-menta);
             margin-bottom: 20px;
+            background: rgba(143, 190, 178, 0.15);
+            padding: 8px 16px;
+            border-radius: 30px;
         }
 
         .cta-final-title {
@@ -1550,13 +1618,15 @@
             color: var(--branco);
             line-height: 1.2;
             margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
 
         .cta-final-text {
             font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
             margin-bottom: 40px;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
         }
 
         .cta-final-buttons {
@@ -1575,7 +1645,7 @@
             align-items: center;
             gap: 8px;
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .cta-final-note svg {
@@ -1584,6 +1654,12 @@
             color: var(--verde-menta);
         }
 
+        @media (min-width: 1024px) {
+            .cta-final {
+                padding: 140px 0;
+            }
+        }
+        
         /* ========================================
            FOOTER
         ======================================== */
